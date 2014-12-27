@@ -54,6 +54,23 @@ def logout_view(request):
 def updates(request, profile_id):
 	access_token = UserAuth.objects.get(user_id=request.user.id).access_token
 	updates = get_updates(access_token, profile_id)
+    paginator = Paginator(updates, 6)
+    page = request.GET.get('page', 1)
+
+    try:
+        page = int(page)
+        updates = paginator.page(page)
+
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        updates = paginator.page(1)
+
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of
+        # results.
+        updates = paginator.page(paginator.num_pages)
+    # campaigns_list["pages_available"] = pages_available
+
 	service = Profile.objects.get(profile_id=profile_id).service.capitalize()
 	return render_to_response('babel/updates.html',{'updates':updates, 'service':service}, context_instance=RequestContext(request))
 
