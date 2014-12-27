@@ -22,20 +22,21 @@
 	</table>
     	<label style="font-size:20px;">Don't see the post you want?</label><br>
         <a href="https://www.bufferapp.com/" target="_blank"><button class="btn btn-lg" style="background-color:white;border-color:gray;color:black;"><img src="http://www.marcus-povey.co.uk/wp-content/buffer-app-logo.png" style="width:20px;height:20px;"> Add on Buffer</button></a>
-</div>
-<div class="pagination">
-    <span class="step-links">
-        {% if updates.has_previous %}
-            <a href="?page={{ updates.previous_page_number }}">previous</a>
-        {% endif %}
+    <div class="pagination">
+	    <span class="step-links">
+	        {% if updates.has_previous %}
+	            <a href="?page={{ updates.previous_page_number }}">previous</a>
+	        {% endif %}
 
-        <span class="current">
-            Page {{ updates.number }} of {{ updates.paginator.num_pages }}.
-        </span>
+	        <span class="current">
+	            Page {{ updates.number }} of {{ updates.paginator.num_pages }}.
+	        </span>
 
-        {% if updates.has_next %}
-            <a href="?page={{ updates.next_page_number }}">next</a>
-        {% endif %}
-    </span>
+	        {% if updates.has_next %}
+	            <a href="?page={{ updates.next_page_number }}">next</a>
+	        {% endif %}
+	    </span>
+	</div>
 </div>
+
 {% endblock content %}
