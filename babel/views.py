@@ -26,7 +26,7 @@ def home(request):
 		form = ProfileForm(request.POST)
 		form.is_valid()
 		profile_id = form.cleaned_data['profile']
-		url = reverse('babel_updates', args=[profile_id,1,])
+		url = reverse('babel_updates', args=[profile_id,])
 		return HttpResponseRedirect(url) 
 	else:
 		form = ProfileForm()
