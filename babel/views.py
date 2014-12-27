@@ -35,7 +35,7 @@ def home(request):
 
 def user_login(request):
 	client_id = os.environ['BUFFER_CLIENT_ID']
-	redirect_uri = 'http://localhost:8000/oauth/'
+	redirect_uri = 'http://babelbuffer.herokuapp.com/oauth/'
 	url = 'https://bufferapp.com/oauth2/authorize?client_id=%s&redirect_uri=%s&response_type=code' % (client_id, redirect_uri)
 	return HttpResponseRedirect(url)
 

@@ -48,7 +48,7 @@ def authenticate_buffer(code):
     data = {
     'client_id': client_id,
     'client_secret': client_secret,
-    'redirect_uri': 'http://localhost:8000/oauth/',
+    'redirect_uri': 'http://babelbuffer.herokuapp.com/oauth/',
     'code': code,
     'grant_type': 'authorization_code'
     }
