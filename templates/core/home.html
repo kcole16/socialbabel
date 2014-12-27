@@ -18,21 +18,7 @@
         {% csrf_token %}
     </form>
 </div>
-<!-- <table class="table">
-	<tr>
-		<th>Service</th>
-		<th>Username</th>
-	</tr>
-	{% for profile in profiles %}
-	<tr>
-		<td>{{ profile.service }}</td>
-		<td>{{ profile.username }}</td>
-		<td>
-	        <a href="{% url 'babel_updates' profile.profile_id %}"><button class="btn btn-lg" style="background-color:white;border-color:gray;color:black;"><img src="http://www.marcus-povey.co.uk/wp-content/buffer-app-logo.png" style="width:20px;height:20px;"> Translate Post</button></a>
-		</td>
-	</tr>
-	{% endfor %}
-</table> -->
+
 {% endblock content %}
 
 
