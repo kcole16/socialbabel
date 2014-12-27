@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Translate{% endblock title %}
+
+{% block content %}
+<div style="width:60%;margin-left:auto;margin-right:auto;text-align:center;">
+	<h2>{{service}}</h2><br>
+	<table class="table">
+		<tr>
+			<th style="text-align:center;">Due Date</th>
+			<th style="text-align:center;">Time</th>
+			<th style="text-align:center;">Content</th>
+			<th style="text-align:center;">Select to Translate</th>
+		</tr>
+		{% for update in updates %}
+		<tr>
+			<td>{{ update.day }}</td>
+			<td>{{ update.due_time }}</td>
+			<td>{{ update.text }}</td>
+			<td><a href="{% url 'babel_new_update' update.id %}">Translate</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+    	<label style="font-size:20px;">Don't see the post you want?</label><br>
+        <a href="https://www.bufferapp.com/" target="_blank"><button class="btn btn-lg" style="background-color:white;border-color:gray;color:black;"><img src="http://www.marcus-povey.co.uk/wp-content/buffer-app-logo.png" style="width:20px;height:20px;"> Add on Buffer</button></a>
+</div>
+{% endblock content %}

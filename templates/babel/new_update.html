@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% if success %}
+<div class="pure-g-r">
+    <div class="pure-u-1" style="padding-top:35px;text-align: center; margin-top: 2em;">
+        {% if update_info.translated_update == "Exists" %}
+        <p style="color:red;font-size:18px;"><strong>Message is already in your queue, and cannot be posted twice</strong></p><br>
+        {% else %}
+        <h1 style="color:green;">Success!</h1><br>
+        <p style="color:black;font-size:18px;"> You've submitted "<strong>{{ update_info.translated_update }}</strong>" in <strong>{{ update_info.target_lang }}</strong> to your queue</p><br>
+        {% endif %}
+        <a href="{% url 'home' %}"><button class="btn btn-lg" style="background-color:white;border-color:gray;color:black;"><img src="http://www.marcus-povey.co.uk/wp-content/buffer-app-logo.png" style="width:20px;height:20px;"> Post Again</button></a>
+    </div>
+</div>
+
+{% else %}
+
+<div style="padding-top:40px;margin-left:auto;margin-right:auto;text-align:center;width:30%;">
+    <label style="font-size:24px;"> Select Language: </label><br>
+    <br>
+    <form method="post" class="form-horizontal" action="{% url 'babel_new_update' update_id %}">
+
+        <div class="form-group">
+                <select class="form-control" id="id_lang" name="target_language">
+                    {% for language in languages %}
+                    <option value="{{language.0}}">{{language.1}}</option>
+                    {% endfor %}
+                </select>
+        </div>
+    <div class="submit_button" style="margin-left:auto;margin-right:auto;text-align:center;">
+         <button class="btn btn-lg" type="submit" name="saveReviewChanges" value="Submit"style="background-color:white;border-color:gray;color:black;"><img src="http://www.marcus-povey.co.uk/wp-content/buffer-app-logo.png" style="width:20px;height:20px;"> Translate</button>
+    </div>
+    {% csrf_token %}
+    </form>
+</div><br>
+<div style="margin-left:auto;margin-right:auto;text-align:center;width:300px;">
+    <p><strong>You're translated post will be scheduled at the same time as the original</strong></p>
+</div>
+
+{% endif %}
+
+{% endblock %}

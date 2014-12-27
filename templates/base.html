@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}ico/favicon.ico">
+
+    <title>{% block title %}{% endblock title %}</title>
+    {% block meta %}{% endblock meta %}
+
+    {% block styles %}
+
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/d.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/social-buttons.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+    {% block extra_styles %}{% endblock extra_styles %}
+    {% endblock styles %}
+
+    {% block javascript %}
+
+    <script src="{{ STATIC_URL }}js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    {% endblock javascript %}
+
+    {% block extra_head %}{% endblock extra_head %}
+  </head>
+
+  <body class="{% block body_class %}{% endblock body_class %}">
+
+    <div class="navbar navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand center" style="color:black;font-weight:bold;margin-left:auto;margin-right:auto;position:center;" href="/">BabelBuffer</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right navbar-top">
+            <li><a style="color:black;" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid center-block">
+      <div class="center-block">
+        <div class="center-block main">
+          {%  block content %}{%  endblock content %}
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    {% block extra_javascript %}{% endblock extra_javascript %}
+    </script>
+    </body>
+</html>

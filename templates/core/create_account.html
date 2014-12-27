@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %} FinishedYo | Create Account {% endblock %}
+
+{% block page_header %}Create Account{% endblock page_header %}
+
+{% block content %}
+<div class="col-md-3">
+    <form method="post" action="{% url 'create_account' %}" role="form">
+
+
+        {% if form.yo_name.errors %}
+        <div class="row">
+            <div class="span9 formerror">
+                {% for error in form.yo_name.errors %}
+                <h5>{{ error|escape }}</h5>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="id_yo_name">Yo Name:</label>
+            <input class="form-control" type="text" name="yo_name" id="id_yo_name"
+            {% if form.yo_name.value %}
+            value="{{form.yo_name.value}}"
+            {% endif %}
+            >
+        </div>
+
+        {% if form.password.errors %}
+        <div class="row">
+            <div class="span9 formerror">
+                {% for error in form.password.errors %}
+                <h5>{{ error|escape }}</h5>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="form-group">
+            <label for="id_password">Password: </label>
+            <input class="form-control" id="id_password" type="password" name="password" maxlength="100"
+            {% if form.password.value %}
+            value="{{form.password.value}}"
+            {% endif %}
+            >
+        </div>
+
+        <div class="row">
+            <div class="col-md-1">
+                <input id="form-submit" class="btn btn-primary btn-submit" type="submit" ></input>
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+    {% endblock %}

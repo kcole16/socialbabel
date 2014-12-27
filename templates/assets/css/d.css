@@ -1,0 +1,100 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+  margin-right: auto;
+  margin-left: auto
+}
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+
+.navbar{
+  color:blue;
+  background-color: white;
+}
+
+/*
+ * Main content
+ */
+
+.main {
+
+  margin-right: auto;
+  margin-left: auto
+}
+/*@media (min-width: 768px) {
+  .main {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}*/
+.main .page-header {
+  margin-top: 0;
+}
+/*
+* {
+    background-color: transparent;
+}
+*/
+/*#id_content {
+
+    width: 185px;
+    height: 60px;
+    text-shadow: none;
+    font-size: 30px;
+    padding:0.5em;
+    letter-spacing: 0.05em;
+    margin: 0 0 20px 0;
+    position: relative;
+    display: block;
+    text-transform: none;
+    border-radius: 0;
+    outline:none;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    background-color:transparent;
+    border:none;
+    box-shadow: none;
+
+}
+
+input:focus{
+    outline:none;
+    -webkit-appearance: none;
+    -webkit-user-select: none;
+    background:none;
+
+}
+
+#id_item {
+    font-color:black;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#id_highlight {
+    color: purple;
+    margin-right: auto;
+    margin-left: auto;
+
+}*/
+
+
+
+
+
+
+
